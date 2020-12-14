@@ -15,16 +15,16 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/valid-parentheses
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class Day1 {
+public class Simple_exercises_02 {
     public static void main(String[] args) {
-     Day1 day1= new Day1();
+     Simple_exercises_02 day1= new Simple_exercises_02();
      String s =   "((" ;
         System.out.println(day1.isValid(s));
 
     }
 
     /**
-     * 解1：使用了堆栈
+     * 解1：使用了栈
      * @param s
      * @return
      */
