@@ -39,13 +39,8 @@ public class Medium_exericises_04 {
     public int minimumTotal(List<List<Integer>> triangle) {
         if (null == triangle || triangle.isEmpty()) return 0;
         int len = triangle.size();
-        int[][] dp = new int[len][len];
-        int size = triangle.get(len - 1).size()-1;
-        int maxIndex = len-1 ;
-        for(int i = 0;i<=size ;i++){
-            dp[maxIndex][i] = triangle.get(maxIndex).get(i) ;
-        }
-        for (int i = len - 2; i >= 0; i--) {
+        int[][] dp = new int[len+1][len+1];
+        for (int i = len -1; i >= 0; i--) {
             for (int j = 0; j <=i; j++) {
                 dp[i][j] =Math.min(dp[i + 1][j+1], dp[i + 1][j])+triangle.get(i).get(j);
             }
