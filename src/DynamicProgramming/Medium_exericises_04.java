@@ -23,7 +23,7 @@ public class Medium_exericises_04 {
 
     public static void main(String[] args) {
         List<List<Integer>> list = Arrays.asList(Arrays.asList(-1),
-                Arrays.asList(2,3),
+                Arrays.asList(2, 3),
                 Arrays.asList(1, -1, -3)
                 /*Arrays.asList(4, 1, 8, 3)*/);
         System.out.println(new Medium_exericises_04().minimumTotal(list));
@@ -31,18 +31,18 @@ public class Medium_exericises_04 {
 
     /**
      * 动态规划
-     * 思路：s[i+1]-s[j-1] 是回文，且s[i]=s[j]
-     * 边缘条件： 当len = 1 时，回文， len = 2时， s[0]= s[1] 回文
+     * 思路： 倒三角形
+     * dp[i][j] = list.get(i).get(j)+Math.min(dp[i+1][j],dp[i+1][j+1])
      *
      * @return
      */
     public int minimumTotal(List<List<Integer>> triangle) {
         if (null == triangle || triangle.isEmpty()) return 0;
         int len = triangle.size();
-        int[][] dp = new int[len+1][len+1];
-        for (int i = len -1; i >= 0; i--) {
-            for (int j = 0; j <=i; j++) {
-                dp[i][j] =Math.min(dp[i + 1][j+1], dp[i + 1][j])+triangle.get(i).get(j);
+        int[][] dp = new int[len + 1][len + 1];
+        for (int i = len - 1; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                dp[i][j] = Math.min(dp[i + 1][j + 1], dp[i + 1][j]) + triangle.get(i).get(j);
             }
         }
         return dp[0][0];
